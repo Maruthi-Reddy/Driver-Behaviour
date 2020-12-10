@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction with Flask</title> 
+</head>
+  <meta name="viewport" content="width=550; user-scalable=0;" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+ <body style="background-image: url('https://images.pexels.com/photos/248747/pexels-photo-248747.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');position: relative;background-size: cover;">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <div class="login">
+    <h1 style="text-align: center;padding-top: 10px;padding-right: 30px;padding-bottom: 30px;padding-left: 30px;color:white;background-color: black;">Driver Behaviour Prediction</h1>
+  </div>
+  <div style="max-width: 550px;padding-top: 15px;padding-left: 15px;padding-right:15px;padding-bottom:15px;background-color: transparent;">
+    <form class="form-group " action="{{ url_for('predict_i')}}"method="post">
+      <div style="padding-bottom: 10px" class=" col-md-12"><input class="form-control" type="text" name="accx" placeholder="Enter ACC X, e.g, 0.25" required="required" /></div>
+      <div style="padding-bottom: 10px" class=" col-md-12"><input class="form-control" type="text" name="accy" placeholder="Enter ACC Y, e.g, 0.15" required="required" /></div>
+      <div style="padding-bottom: 10px" class="col-md-12"><input class="form-control" type="text" name="accz" placeholder="Enter ACC Z, e.g, 0.01" required="required" /></div>
+      <div style="padding-bottom: 10px" class=" col-md-12"><input class="form-control" type="text" name="gccx" placeholder="Enter GYRO X, e.g, 0.06" required="required" /></div>
+      <div style="padding-bottom: 10px" class=" col-md-12"><input class="form-control" type="text" name="gccy" placeholder="Enter GYRO Y, e.g, 0.06" required="required" /></div>
+      <div style="padding-bottom: 10px" class="col-md-12"><input class="form-control" type="text" name="gccz" placeholder="Enter GYRO Z, e.g, 0.05" required="required" /></div>
+      <div><button type="submit" class="btn btn-primary btn-large">Predict</button></div>
+    </form>
+    <hr style="width:100%;color: white;">
+  </div>
+  <form style="padding-left: 15px;padding-bottom: 30px;" class="mb-3" action="data" method='post'>
+    <div  class="form-group"><input type="file" style="padding-bottom: 10px" class="form-control-file" name="csvfile" values="">
+      <input  type="Submit" class="btn btn-primary btn-large" name="" values="Submit">
+    </div>
+    
+  </form>  
+      
+     <strong>{{safe}}</strong></br>
+      <br><strong>{{unsafe}}</strong></br>
+      <br><strong>{{output}}</strong></br>
+       
+  </body>
+  
